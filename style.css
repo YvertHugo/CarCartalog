@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .top-bar {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .auth-buttons {
+    display: flex;
+    gap: 25px;
+  }
+  
+  .btn {
+    padding: 5px 2px;
+    border: none;
+    color: #efe9e9;
+    background-color: #0a192f;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .btn:hover {
+    color: #acbbc5;
+    background-color: #0a192f;
+    border-bottom: 2px solid #cf0303;
+  }
+  
+  .btn-secondary {
+    color: #efe9e9;
+    background-color: #0a192f;
+  }
+  
+  .btn-secondary:hover {
+    color: #acbbc5;
+    background-color: #0a192f;
+    border-bottom: 2px solid #cf0303;
+  }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0a192f;
+    color: #efe9e9;
+    padding: 40px;
+    line-height: 1.6;
+    margin-left: 6rem;
+    margin-right: 6rem;
+  }
+  
+  /* Titres */
+  h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #efe9e9;
+    margin-bottom: 40px;
+  }
+  
+  h2 {
+    margin-top: 40px;
+    font-size: 1.8rem;
+    color: #efe9e9;
+    border-bottom: 2px solid #cf0303;
+    display: inline-block;
+    padding-bottom: 5px;
+  }
+  
+  /* Listes */
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 20px;
+  }
+  
+  li {
+    background-color: #0a192f;
+    border: 1px solid #cf0303;
+    padding: 12px 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+  }
+
+  li button {
+    background-color: #0a192f;
+    border: none;
+    color: #efe9e9;
+    border: 1px solid #efe9e9;
+    padding: 3px;
+    border-radius: 3px;
+  }
+  
+  li:hover {
+    background-color: #cf030350;
+  }
+  
+  @media (max-width: 900px) {
+    body {
+      padding: 20px;
+      margin-left: 3rem;
+      margin-right: 3rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+        margin-top: 4rem;
+      }
+  }
+  
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    body {
+      padding: 20px;
+      margin-left: 0;
+      margin-right: 0;
+    }
+  
+    h1 {
+      font-size: 2rem;
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
