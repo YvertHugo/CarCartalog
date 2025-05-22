@@ -1,5 +1,4 @@
 const API_URL_AUTH = 'http://localhost:8000/api/auth/';
-const API_URL_POST = 'http://127.0.0.1:8000/api/marque/';
 
 // REGISTER - POST USER
 const registerForm = document.querySelector('#register-form');
@@ -10,6 +9,7 @@ if (registerForm) {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const c_password = document.getElementById('c_password').value;
+
     try {
       const res = await fetch(API_URL_AUTH + 'register', {
         method: 'POST',
@@ -48,6 +48,7 @@ if (loginForm) {
     if (res.ok) {
         alert('Connexion réussie !');
         localStorage.setItem('token', data.accessToken);
+        localStorage.setItem('rank', data.user.rank);
         window.location.href = '../index.html';
     } else {
         alert(data.message || 'Email ou mot de passe incorrect.');

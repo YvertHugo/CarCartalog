@@ -33,6 +33,7 @@ class AuthController extends Controller
             'name'  => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
+            'rank' => 'client'
         ]);
 
         if($user->save()){
@@ -81,6 +82,11 @@ class AuthController extends Controller
         return response()->json([
         'accessToken' =>$token,
         'token_type' => 'Bearer',
+        'user' => [
+            'name' => $user->name,
+            'email' => $user->email,
+            'rank' => $user->rank
+        ]
         ]);
     }
 

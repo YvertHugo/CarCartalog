@@ -1,3 +1,15 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const userRank = localStorage.getItem('rank');
+  
+  if (userRank === 'client') {
+    document.querySelectorAll('.admin-only').forEach(el => el.style.display = 'none');
+  }
+});
+
+
+
+
+
 URL_API = "http://127.0.0.1:8000/api/";
 
 const token = localStorage.getItem('token');
@@ -15,13 +27,22 @@ fetch(URL_API + "marque/get-all", {
     listeMarque.innerHTML = "";
 
     const marques = response.data;
+    const userRank = localStorage.getItem("rank");
 
     marques.forEach(marque => {
       const li = document.createElement("li");
+
+      let buttonsHTML = "";
+      if (userRank === "admin") {
+        buttonsHTML = `
+          <button onclick="editBrand(${marque.id}, '${marque.nom}')">Modifier</button>
+          <button onclick="deleteBrand(${marque.id})">Supprimer</button>
+        `;
+      }
+
       li.innerHTML = `
         <span>${marque.nom}</span>
-        <button onclick="editBrand(${marque.id}, '${marque.nom}')">Modifier</button>
-        <button onclick="deleteBrand(${marque.id})">Supprimer</button>
+        ${buttonsHTML}
       `;
       listeMarque.appendChild(li);
     });
@@ -29,6 +50,7 @@ fetch(URL_API + "marque/get-all", {
   .catch(error => {
     console.error("Erreur lors du chargement des marques :", error);
   });
+
 
 
 // POST MARQUE
@@ -116,9 +138,6 @@ if (addBrandForm) {
   
 
 
-
-
-
 // GET-ALL VOITURE
 fetch(URL_API + "voiture/get-all", {
   headers: {
@@ -131,19 +150,28 @@ fetch(URL_API + "voiture/get-all", {
     listeVoiture.innerHTML = "";
 
     const voitures = response.data;
+    const userRank = localStorage.getItem("rank"); 
 
     voitures.forEach(voiture => {
       const li = document.createElement("li");
+
+      let buttonsHTML = "";
+      if (userRank === "admin") {
+        buttonsHTML = `
+          <button onclick="editVoiture(${voiture.id}, '${voiture.nom}')">Modifier</button>
+          <button onclick="deleteVoiture(${voiture.id})">Supprimer</button>
+        `;
+      }
+
       li.innerHTML = `
-        <span>${voiture.marque} ${voiture.modele} - ${voiture.annee}</span>
-        <button onclick="editVoiture(${voiture.id}, '${voiture.nom}')">Modifier</button>
-        <button onclick="deleteVoiture(${voiture.id})">Supprimer</button>
+        <span>${voiture.marque.nom} ${voiture.modele} - ${voiture.annee}</span>
+        ${buttonsHTML}
       `;
       listeVoiture.appendChild(li);
     });
   })
   .catch(error => {
-    console.error("Erreur lors du chargement des marques :", error);
+    console.error("Erreur lors du chargement des voitures :", error);
   });
 
 

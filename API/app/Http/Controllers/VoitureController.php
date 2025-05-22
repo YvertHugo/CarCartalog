@@ -10,7 +10,7 @@ use App\Models\Voiture;
 class VoitureController extends Controller
 {
     public function getAll(){
-        $voiture = Voiture::all();
+        $voiture = Voiture::with('marque')->get();
         return ApiResponse::success('Liste des marques récupérée', $voiture);
     }
 
