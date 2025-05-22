@@ -201,9 +201,11 @@ fetch(URL_API + "voiture/get-all", {
 
 
 // UPDATE VOITURE
-  function editVoiture(id, oldModele) {
-    const newModele = prompt("Nouveau nom du Modèle :", oldModele);
+  function editVoiture(id) {
+    const newModele = prompt("Nouveau nom du Modèle");
+    const newAnnee = prompt("Nouvelle Année de la Voiture");
     if (!newModele || newModele.trim() === "") return;
+    if (!newAnnee || newAnnee.trim() === "") return;
   
     fetch(URL_API + `voiture/update/${id}`, {
       method: "PUT",
@@ -211,7 +213,7 @@ fetch(URL_API + "voiture/get-all", {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${localStorage.getItem('token')}`
       },
-      body: JSON.stringify({ nom: newModele })
+      body: JSON.stringify({ modele: newModele, annee: newAnnee})
     })
     .then(response => response.json())
     .then(data => {
