@@ -46,7 +46,6 @@ if (loginForm) {
     });
     const data = await res.json();
     if (res.ok) {
-        alert('Connexion réussie !');
         localStorage.setItem('token', data.accessToken);
         localStorage.setItem('rank', data.user.rank);
         window.location.href = '../index.html';
