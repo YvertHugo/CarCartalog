@@ -13,7 +13,7 @@ CarCatalog est une application web dynamique et responsive permettant de gérer 
 🚙 **CRUD Voiture**  
 - Créer, lire, mettre à jour et supprimer des voitures associées à une marque.
 
-📡 **API**  
+📡 **API RESTful**  
 - Développée avec **Laravel** (PHP), l’API permet de gérer toutes les opérations CRUD pour les entités `Marque` et `Voiture`.
 
 🗃️ **Base de données relationnelle**  
@@ -22,3 +22,12 @@ CarCatalog est une application web dynamique et responsive permettant de gérer 
 🎨 **Interface utilisateur**  
 - Front-end en **HTML5**, **CSS3** et **JavaScript** pour une interaction fluide avec l’API.
 - Design responsive, accessible depuis desktop et mobile.
+
+## 🧰 Stack technique
+
+| Technologie       | Rôle                          |
+|-------------------|-------------------------------|
+| **Laravel (PHP)** | Backend / API REST            |
+| **MySQL**         | Base de données               |
+| **HTML5/CSS3**    | Structure et mise en page     |
+| **JavaScript**    | Intégration API côté client   |
